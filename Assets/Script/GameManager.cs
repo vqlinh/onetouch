@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     private int numberHint;
     private bool isFinished;
     private GameObject panelWin;
-    private GameObject panelShop;
     private Point startPoint, endPoint;
     private TextMeshProUGUI txtNumberHint;
     private Dictionary<int, Point> points;
@@ -58,9 +57,7 @@ public class GameManager : MonoBehaviour
         Level levelStart = levels[numberSelect];
         LevelStart(levelStart);
         panelWin = GameObject.Find("CompleteLevel");
-        panelShop = GameObject.Find("PanelShop");
         panelWin.SetActive(false);
-        panelShop.SetActive(false);
         UpdateHint();
     }
 
@@ -91,7 +88,6 @@ public class GameManager : MonoBehaviour
 
                 PlayerPrefs.SetInt("NumberHint", numberHint);
                 PlayerPrefs.Save();
-                panelShop.SetActive(true);
             }
             else 
             {
